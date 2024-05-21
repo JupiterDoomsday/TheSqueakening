@@ -1,0 +1,4 @@
+repository "My project@jupiterdoomsday_unity@cloud"
+  path "/"
+    br "/main"
+    co "/main"
