@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a997e54b7982a47b346865d42ea285, type: 3}
   m_Name: scripture2
   m_EditorClassIdentifier: 
-  text: 
-  title: When we are hald done we pray to the south
-  next: {fileID: 0}
+  text: When we are hald done we pray to the south
+  title: 
+  next: {fileID: 11400000, guid: dfc863c168c657544ad71ac3e482bf55, type: 2}
   choices: []

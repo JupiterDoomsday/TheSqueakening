@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98a997e54b7982a47b346865d42ea285, type: 3}
-  m_Name: scripture
+  m_Script: {fileID: 11500000, guid: 95616431ca2a71a4e844665412dcae25, type: 3}
+  m_Name: sign
   m_EditorClassIdentifier: 
-  text: When we wake pray to the east
-  title: 
-  next: {fileID: 11400000, guid: d5574407921c59b4fa7cc2d23b4faae0, type: 2}
-  choices: []
+  root: {fileID: 11400000, guid: 677871eaaab5c7e4897793d1b5c7f01b, type: 2}

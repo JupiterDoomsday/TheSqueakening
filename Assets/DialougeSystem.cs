@@ -11,6 +11,7 @@ namespace dialougeSystem
         public TextMeshProUGUI charName;
         public DialougeNode curNode;
         public TextMeshProUGUI diaBox;
+        private bool isDone = false;
         private bool noChoices = true;
 
         public static DialougeSystem Instance { get; private set; }
@@ -19,23 +20,19 @@ namespace dialougeSystem
         {
             if (Instance == null)
                 Instance = this;
-            else
-                Destroy(gameObject);
-            
-            HideUI();
-        }
 
+        }
         public void StartDialouge(DialougeNode convo)
         {
-            charName.text = convo.title;
-            diaBox.text = convo.text;
-            /*noChoices = curNode.choices.Length == 0;*/
-            if(noChoices)
-            {
+            curNode = null;
+            isDone = false;
+            ShowUI();
+            ShowNode(convo);
+        }
 
-            }
-            curNode = convo;
-
+        public bool hasChoices()
+        {
+            return !noChoices;
         }
 
         public void HideUI()
@@ -48,11 +45,38 @@ namespace dialougeSystem
             parentDialougeUI.SetActive(true);
         }
 
+        public void ShowNode(DialougeNode convo)
+        {
+            if (convo)
+            {
+                curNode = convo;
+                noChoices = curNode.choices.Length == 0;
+                if (noChoices)
+                {
+                    charName.SetText(convo.title);
+                    diaBox.SetText(convo.text);
+                }
+            }
+            else
+            {
+                charName.SetText(" ");
+                isDone = true;
+                HideUI();
+            }
+        }
+
         // Update is called once per frame
 
         public void HandleNext() 
         {
-            StartDialouge(curNode.next);
+
+            ShowNode(curNode.next);
         }
+
+        public bool IsDone()
+        {
+            return isDone;
+        }
+
     }
 }

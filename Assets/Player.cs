@@ -1,25 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameStatMachine;
 
 public class Player : MonoBehaviour
 {
     public int range;
+    public GameObject notice;
+    public GameStates state = GameStates.IDLE;
+
     Vector3 moving;
     // Start is called before the first frame update
-    void Start()
-    {
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("npc"))
+            notice.SetActive(true);
     }
-
-    bool Interact()
+    private void OnTriggerExit(Collider other)
     {
-        RaycastHit hit;
-        if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, range, 3))
-        {
-            Debug.Log("Ray cast Hit at distance: " + hit.distance);
-            return true;
-        }
-        return false;
+        notice.SetActive(false);
     }
 }

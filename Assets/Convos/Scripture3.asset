@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a997e54b7982a47b346865d42ea285, type: 3}
   m_Name: Scripture3
   m_EditorClassIdentifier: 
-  text: 
-  title: Before dinner we pray to the west
+  text: Before dinner we pray to the west
+  title: 
   next: {fileID: 0}
   choices: []
